@@ -21,9 +21,11 @@ This document provides guidelines and best practices to help you contribute effe
 By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it to understand the expectations we have for everyone who contributes to this project.
 
 ## 📢 A Quick Word
+
 Right now we will not be accepting any Contributions that add non-essential commands to Auto-GPT.
 
 However, you absolutely can still add these commands to Auto-GPT in the form of plugins. Please check out this [template](https://github.com/Significant-Gravitas/Auto-GPT-Plugin-Template).
+
 > ⚠️ Plugin support is expected to ship within the week. You can follow PR #757 for more updates!
 
 ## Getting Started
@@ -70,31 +72,29 @@ When submitting a pull request, please ensure that your changes meet the followi
 
 ### Code Formatting
 
-We use the `black` code formatter to maintain a consistent coding style across the project. Please ensure that your code is formatted using `black` before submitting a pull request. You can install `black` using `pip`:
+We use `trunk` to orchestrate linters and formatters to maintain a consistent coding style across the project. Please ensure you run `trunk check` before submitting a pull request. Documentation can be found here: https://docs.trunk.io/docs/check-get-started
 
-```bash
-pip install black
-```
+Trunk Check uses a pre-commit hook to format before committing. Trunk Check also uses a pre-push hook to run all formatting and linting.
 
-To format your code, run the following command in the project's root directory:
+You can install the Trunk Check VSCode extension here: https://marketplace.visualstudio.com/items?itemName=Trunk.io
 
-```bash
-black .
-```
 ### Pre-Commit Hooks
-We use pre-commit hooks to ensure that code formatting and other checks are performed automatically before each commit. To set up pre-commit hooks for this project, follow these steps:
+
+We use pre-commit hooks to ensure tests and other checks are performed automatically before each commit. To set up pre-commit hooks for this project, follow these steps:
 
 Install the pre-commit package using pip:
+
 ```bash
 pip install pre-commit
 ```
 
 Run the following command in the project's root directory to install the pre-commit hooks:
+
 ```bash
 pre-commit install
 ```
 
-Now, the pre-commit hooks will run automatically before each commit, checking your code formatting and other requirements.
+Now, the pre-commit hooks will run automatically before each commit, testing your code and other requirements.
 
 If you encounter any issues or have questions, feel free to reach out to the maintainers or open a new issue on GitHub. We're here to help and appreciate your efforts to contribute to the project.
 
