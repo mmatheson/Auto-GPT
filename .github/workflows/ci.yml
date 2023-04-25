@@ -2,9 +2,9 @@ name: Python CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 concurrency:
   group: ${{ format('ci-{0}', github.head_ref && format('pr-{0}', github.event.pull_request.number) || github.sha) }}
@@ -30,16 +30,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint with flake8
-        run: flake8
-
-      - name: Check black formatting
-        run: black . --check
-        if: success() || failure()
-
-      - name: Check isort formatting
-        run: isort . --check
-        if: success() || failure()
+      - name: Trunk Check
+        uses: trunk-io/trunk-action@v1
 
   test:
     permissions:
